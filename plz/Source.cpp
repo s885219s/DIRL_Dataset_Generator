@@ -160,10 +160,17 @@ int main(int argc, char *argv[])
 		cap.read(image);        
 		if (!image.empty()) {
 			flip(image, image, 1);
-
 			line(image, Point(0, screen_height / 2), Point(screen_width, screen_height / 2), Scalar(0, 0, 255), 2);
 			line(image, Point(screen_width /2, 0), Point(screen_width/2, screen_height), Scalar(0, 0, 255), 2);
-			imshow("WEBCAM", image);
+			if (count == 0) {
+				namedWindow("WEBCAM START", CV_WINDOW_NORMAL);
+				setWindowProperty("WEBCAM START", CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
+				imshow("WEBCAM START", image);
+			}
+			else {
+				destroyWindow("WEBCAM START");
+				imshow("WEBCAM", image);
+			}
 			key = waitKey(33); 
 			if (key == 115) {
 				cout << count << endl;
@@ -173,7 +180,7 @@ int main(int argc, char *argv[])
 						if (i == 0)	waitKey(200);
 						cap.read(image);
 						flip(image, image, 1);
-						imshow("WEBCAM", image);
+						imshow("WEBCAM START", image);
 						cout << "Save: " << user_name + photo_name << endl;
 						imwrite(user_name + "\\" + "Start_" + user_name + photo_name, image, compression_params);
 						//imshow(to_string(i), image);
