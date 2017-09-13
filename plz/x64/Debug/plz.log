@@ -1,4 +1,5 @@
-﻿  Source.cpp
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (plz.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Source.cpp
 c:\opencv\build\include\opencv2\core\mat.hpp(2586): warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
 c:\opencv\build\include\opencv2\core\persistence.hpp : warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
 c:\opencv\build\include\opencv2\core\utility.hpp : warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
@@ -8,5 +9,40 @@ c:\opencv\build\include\opencv2\imgproc.hpp : warning C4819: 檔案含有無法�
 c:\opencv\build\include\opencv2\imgproc.hpp(592): warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
 c:\opencv\build\include\opencv2\stitching\detail\motion_estimators.hpp : warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
 c:\opencv\build\include\opencv2\video\tracking.hpp(532): warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
-  plz.vcxproj -> C:\plz\x64\Debug\plz.exe
-  plz.vcxproj -> C:\plz\x64\Debug\plz.pdb (Full PDB)
+d:\share\dataset_generator\plz\source.cpp(22): warning C4244: '正在初始化': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(23): warning C4244: '正在初始化': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(144): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(148): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(149): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(150): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(153): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(154): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(155): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(173): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(174): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(175): warning C4244: '正在初始化': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(176): warning C4244: '正在初始化': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(179): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(180): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(181): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(182): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(190): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(191): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(192): warning C4244: '正在初始化': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(193): warning C4244: '正在初始化': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(196): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(197): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(198): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(199): warning C4244: '=': 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(249): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(250): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(285): warning C4244: '正在初始化': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(286): warning C4244: '正在初始化': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(287): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(288): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(289): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(292): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(293): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+d:\share\dataset_generator\plz\source.cpp(294): warning C4244: '引數': 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+  plz.vcxproj -> D:\share\dataset_generator\x64\Debug\dataset_generator.exe
+  plz.vcxproj -> D:\share\dataset_generator\x64\Debug\dataset_generator.pdb (Full PDB)
