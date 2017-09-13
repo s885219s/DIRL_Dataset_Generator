@@ -23,6 +23,68 @@ float screen_width = GetSystemMetrics(SM_CXSCREEN);
 float screen_height = GetSystemMetrics(SM_CYSCREEN);
 bool mouse = FALSE;
 
+string user_name = "0100";
+float subject_distance = 550.0;
+float monitor_width = 1210.0;
+float monitor_height = 680.0;
+string user_pose = "0";
+int width_points = 9;
+int width_range = 40;
+int height_points = 7;
+int height_range = 30;
+int max_count = 100;
+
+vector<string> get_arguments(int argc, char **argv)
+{
+
+	vector<string> arguments;
+
+	for (int i = 0; i < argc; ++i)
+	{
+		arguments.push_back(string(argv[i]));
+	}
+	return arguments;
+}
+void takePhotoParameters(vector<string> &arguments) {
+	for (size_t i = 1; i < arguments.size(); ++i) {
+		if (arguments[i].compare("-un") == 0)
+			user_name = arguments[i + 1];
+		if (arguments[i].compare("-d") == 0) {
+			stringstream data(arguments[i + 1]);
+			data >> subject_distance;
+		}
+		if (arguments[i].compare("-w") == 0) {
+			stringstream data(arguments[i + 1]);
+			data >> monitor_width;
+		}
+		if (arguments[i].compare("-h") == 0) {
+			stringstream data(arguments[i + 1]);
+			data >> monitor_height;
+		}
+		if (arguments[i].compare("-p") == 0)
+			user_pose = arguments[i + 1];
+		if (arguments[i].compare("-wp") == 0) {
+			stringstream data(arguments[i + 1]);
+			data >> width_points;
+		}
+		if (arguments[i].compare("-wr") == 0) {
+			stringstream data(arguments[i + 1]);
+			data >> width_range;
+		}
+		if (arguments[i].compare("-hp") == 0) {
+			stringstream data(arguments[i + 1]);
+			data >> height_points;
+		}
+		if (arguments[i].compare("-hr") == 0) {
+			stringstream data(arguments[i + 1]);
+			data >> height_range;
+		}
+		if (arguments[i].compare("-c") == 0) {
+			stringstream data(arguments[i + 1]);
+			data >> max_count;
+		}
+	}
+}
 void take_photo(int event,int x ,int y, int flags, void* param) {
 	if (event == CV_EVENT_LBUTTONDOWN) {
 		mouse = TRUE;
@@ -32,7 +94,10 @@ int random_num(int i) { return rand() % i; }
 
 int main(int argc, char *argv[])
 {
-	//cout << argv[1] << '\n';
+	vector<string> arguments = get_arguments(argc, argv);
+	takePhotoParameters(arguments);
+	cout << "username: " << user_name << " pose: " << user_pose << endl;
+	cout << "mw: " << monitor_width << " mh: " << monitor_height << endl;
 	Mat image;
 	Mat photo;
 	int i = 0;
@@ -42,16 +107,6 @@ int main(int argc, char *argv[])
 	vector<int> rand_test_set_two;
 	int start_coordinate[2] = { 0 };
 	string photo_name = "";
-	string user_name = argv[1];
-	float subject_distance = atoi(argv[2]);
-	float monitor_width = atoi(argv[3]);
-    float monitor_height = atoi(argv[4]);
-	string user_pose = argv[5];
-	int width_points = atoi(argv[6]);
-	int width_range = atoi(argv[7]);
-	int height_points = atoi(argv[8]);
-	int height_range = atoi(argv[9]);
-	int max_count = atoi(argv[10]);
 
 	int total_count = width_points*height_points;
 	int major_count = width_points * 3 + (height_points - 3) * 3;
@@ -159,6 +214,7 @@ int main(int argc, char *argv[])
 	cap.open(0);
 	cap.set(CV_CAP_PROP_FRAME_WIDTH, 1920);
 	cap.set(CV_CAP_PROP_FRAME_HEIGHT, 1080);
+	cap.set(CV_CAP_PROP_EXPOSURE, -7.5);//曝光度
 	Size videoSize = Size((int)cap.get(CV_CAP_PROP_FRAME_WIDTH), (int)cap.get(CV_CAP_PROP_FRAME_HEIGHT));
 	
 	writer.open(user_name + "\\" + user_name + ".avi", CV_FOURCC('M', 'J', 'P', 'G'), 30, videoSize);	
@@ -177,7 +233,10 @@ int main(int argc, char *argv[])
 
 	outputfile << to_string(vms.count()) << "," << "start_recording" << endl;
 	vms = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
-
+	
+	//CV_CAP_PROP_BRIGHTNESS 影像亮度
+	//CV_CAP_PROP_CONTRAST 影像對比度
+	//CV_CAP_PROP_SATURATION 影像飽和度
 	while (cap.isOpened())   
 	{ 
 		int cur_setting = 0;
@@ -209,7 +268,9 @@ int main(int argc, char *argv[])
 				cout << "ms:" << to_string(ms.count()) << endl;
 				outputfile << to_string(ms.count()) << ",saving_img(" << user_name + "\\" + photo_name << ")" << endl;
 				cout << count << endl;
-				photo_name = user_name + "_" + user_pose + "P_" + to_string(int(gaze_points[cur_setting][1])) + "H_" + to_string(int(gaze_points[cur_setting][0])) + "V" + ".png";
+				int true_hor = int(gaze_points[cur_setting][1])*(-1);
+				//cout << gaze_points[cur_setting][1] << ',' << true_hor << endl;
+				photo_name = user_name + "_" + user_pose + "P_" + to_string(true_hor) + "H_" + to_string(int(gaze_points[cur_setting][0])) + "V" + ".png";
 				imwrite(user_name + "\\" + photo_name, image, compression_params);
 				ms = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
 				outputfile << to_string(ms.count()) << ",saving_finish" << endl;
